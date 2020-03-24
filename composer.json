@@ -1,0 +1,21 @@
+{
+    "name": "juanfariasgit/crud",
+    "description": "PHP Da Maneira Certa - CRUD + DAO",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juan De Oliveira Farias",
+            "email": "juanfarias580@gmail.com"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "model\\": "model/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}

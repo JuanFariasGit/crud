@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto
+}
+
+input {
+    margin: 2px 0px
+}
+
+h1 {
+    font-size: 16pt;
+    text-align: center
+}
+
+input[type="submit"] {
+    border: 0px;
+    background-color: #AAFFCC;
+    padding: 5px;
+    cursor: pointer;
+    color: #000000;
+    font-weight: bold
+}
+
+table {
+    text-align: center
+}
+
+.container-table {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 10px auto
+}
