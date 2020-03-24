@@ -42,7 +42,8 @@ endif
                     <td><?= $p['cpf']; ?></td>
                     <td><?= $p['nome']; ?></td>
                     <td>
-                        <a href=""></a>
+                        <a href="<?= BASE_URL; ?>edit.php?id=<?= $p['id'];?>">Editar</a>
+                        <a href="<?= BASE_URL; ?>del.php?id=<?= $p['id'];?>">Deletar</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
