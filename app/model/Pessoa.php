@@ -1,6 +1,6 @@
 <?php
 
-namespace model;
+namespace App\Model;
 
 class Pessoa {
     private $id;

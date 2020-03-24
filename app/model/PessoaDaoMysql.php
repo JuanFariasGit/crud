@@ -1,6 +1,6 @@
 <?php
 
-namespace model;
+namespace App\Model;
 
 class PessoaDaoMysql implements PessoaDao {
     public function create(Pessoa $p) {

@@ -1,8 +1,8 @@
 <?php
 require_once "vendor/autoload.php";
 
-$pessoa    = new \model\Pessoa;
-$pessoaDao = new \model\PessoaDaoMysql;
+$pessoa    = new App\Model\Pessoa;
+$pessoaDao = new App\Model\PessoaDaoMysql;
 
 if($_SERVER['REQUEST_METHOD'] == "GET"):
 
