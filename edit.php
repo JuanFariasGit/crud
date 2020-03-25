@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $pessoaDao->update($pessoa);
     
-    header("Location: index.php");
+    die(header("Location: index.php"));
 }
 ?>
 
