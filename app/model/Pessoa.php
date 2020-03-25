@@ -39,7 +39,8 @@ class Pessoa
     
 }
 
-interface PessoaDao {
+interface PessoaDao 
+{
     public function create(Pessoa $p);
     public function findAll();
     public function findById($id);
