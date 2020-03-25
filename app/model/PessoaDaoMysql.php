@@ -1,9 +1,10 @@
 <?php
-
 namespace App\Model;
 
-class PessoaDaoMysql implements PessoaDao {
-    public function create(Pessoa $p) {
+class PessoaDaoMysql implements PessoaDao 
+{
+    public function create(Pessoa $p) 
+    {
         $query  = "INSERT INTO pessoa (cpf,nome) VALUES (?,?)";
         $stmt = Conexao::Con()->prepare($query);
         $stmt->bindValue(1, $p->getCpf());
@@ -11,7 +12,8 @@ class PessoaDaoMysql implements PessoaDao {
         $stmt->execute();
     }
 
-    public function findAll() {
+    public function findAll() 
+    {
         $array = [];
 
         $query = "SELECT * FROM pessoa";
@@ -24,7 +26,8 @@ class PessoaDaoMysql implements PessoaDao {
         return $array;
     }
 
-    public function findById($id) {
+    public function findById($id) 
+    {
         $array = [];
         
         $query = "SELECT * FROM pessoa WHERE id = ?";
@@ -38,7 +41,8 @@ class PessoaDaoMysql implements PessoaDao {
         return $array;
     }
 
-    public function update(Pessoa $p) {
+    public function update(Pessoa $p) 
+    {
         $query  = "UPDATE pessoa SET cpf = ?, nome = ? WHERE id = ?";
         $stmt = Conexao::Con()->prepare($query);
         $stmt->bindValue(1, $p->getCpf());
@@ -47,10 +51,13 @@ class PessoaDaoMysql implements PessoaDao {
         $stmt->execute();
     }
 
-    public function delete($id) {
+    public function delete($id) 
+    {
         $query  = "DELETE FROM pessoa WHERE id = ?";
         $stmt = Conexao::Con()->prepare($query);
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }
+    
 }
+

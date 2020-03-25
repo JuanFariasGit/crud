@@ -4,8 +4,7 @@ require_once "vendor/autoload.php";
 $pessoa    = new App\Model\Pessoa;
 $pessoaDao = new App\Model\PessoaDaoMysql;
 
-if($_SERVER['REQUEST_METHOD'] == "POST"):
-
+if($_SERVER['REQUEST_METHOD'] == "POST") {
     $pessoa->setId($_REQUEST['id']);
     $pessoa->setCpf($_REQUEST['cpf']);
     $pessoa->setNome($_REQUEST['nome']);
@@ -13,8 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"):
     $pessoaDao->update($pessoa);
     
     header("Location: index.php");
-
-endif
+}
 ?>
 
 <?php include_once "inc/header.php"; ?>

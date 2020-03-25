@@ -1,35 +1,42 @@
 <?php
-
 namespace App\Model;
 
-class Pessoa {
+class Pessoa 
+{
     private $id;
     private $cpf;
     private $nome;
 
-    public function setId($id) {
+    public function setId($id) 
+    {
         $this->id = $id;
     }
 
-    public function getId() {
+    public function getId() 
+    {
         return $this->id;
     }
 
-    public function setCpf($cpf) {
+    public function setCpf($cpf) 
+    {
         $this->cpf = $cpf;
     }
 
-    public function getCpf() {
+    public function getCpf() 
+    {
         return $this->cpf;
     }
 
-    public function setNome($nome) {
+    public function setNome($nome) 
+    {
         $this->nome = $nome;
     }
 
-    public function getNome() {
+    public function getNome() 
+    {
         return $this->nome;
     }
+    
 }
 
 interface PessoaDao {
@@ -39,3 +46,4 @@ interface PessoaDao {
     public function update(Pessoa $p);
     public function delete($id);
 }
+

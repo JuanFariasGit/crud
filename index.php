@@ -4,16 +4,14 @@ require_once "vendor/autoload.php";
 $pessoa    = new App\Model\Pessoa;
 $pessoaDao = new App\Model\PessoaDaoMysql;
 
-if($_SERVER['REQUEST_METHOD'] == "POST"):
-
+if($_SERVER['REQUEST_METHOD'] == "POST") {
     $pessoa->setCpf($_REQUEST['cpf']);
     $pessoa->setNome($_REQUEST['nome']);
 
     $pessoaDao->create($pessoa);
     
     header("Location: index.php");
-
-endif
+}
 ?>
 
 <?php include_once "inc/header.php"; ?>
