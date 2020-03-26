@@ -28,8 +28,6 @@ table {
 }
 
 .container-table {
-    display: flex;
-    flex-direction: column;
     width: 600px;
     margin: 10px auto
 }
