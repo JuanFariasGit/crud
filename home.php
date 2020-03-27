@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "vendor/autoload.php";
 
 $pessoa    = new App\Model\Pessoa();
