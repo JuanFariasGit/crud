@@ -6,20 +6,10 @@ class Pessoa
     private $id;
     private $cpf;
     private $nome;
-
-    public function setId($id) 
-    {
-        $this->id = $id;
-    }
-
+            
     public function getId() 
     {
         return $this->id;
-    }
-
-    public function setCpf($cpf) 
-    {
-        $this->cpf = $cpf;
     }
 
     public function getCpf() 
@@ -27,16 +17,26 @@ class Pessoa
         return $this->cpf;
     }
 
+    public function getNome() 
+    {
+        return $this->nome;
+    }
+
+    public function setId($id) 
+    {
+        $this->id = $id;
+    }
+
+    public function setCpf($cpf) 
+    {
+        $this->cpf = $cpf;
+    }
+
     public function setNome($nome) 
     {
         $this->nome = $nome;
     }
 
-    public function getNome() 
-    {
-        return $this->nome;
-    }
-    
 }
 
 interface PessoaDao 
