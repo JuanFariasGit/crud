@@ -15,6 +15,8 @@
             die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
         }
     }
+    
+    $logarDao->logout();
 ?>
 
 <?php include_once "inc/header.php"; ?>
