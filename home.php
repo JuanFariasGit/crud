@@ -2,10 +2,10 @@
 session_start();
 require_once "vendor/autoload.php";
 
-$login = new App\Model\Logar();
-$loginDao = new App\Model\LogarDaoMysql();
+$logar = new App\Model\Logar();
+$logarDao = new App\Model\LogarDaoMysql();
 
-if($loginDao->checkLogin()) {
+if($logarDao->checkLogin()) {
     $pessoa    = new App\Model\Pessoa();
     $pessoaDao = new App\Model\PessoaDaoMysql();
 
