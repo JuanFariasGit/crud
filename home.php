@@ -2,16 +2,23 @@
 session_start();
 require_once "vendor/autoload.php";
 
-$pessoa    = new App\Model\Pessoa();
-$pessoaDao = new App\Model\PessoaDaoMysql();
+$login = new App\Model\Logar();
+$loginDao = new App\Model\LogarDaoMysql();
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
-    $pessoa->setCpf($_REQUEST['cpf']);
-    $pessoa->setNome($_REQUEST['nome']);
+if($loginDao->checkLogin()) {
+    $pessoa    = new App\Model\Pessoa();
+    $pessoaDao = new App\Model\PessoaDaoMysql();
 
-    $pessoaDao->create($pessoa);
-    
-    die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
+    if($_SERVER['REQUEST_METHOD'] == "POST") {
+        $pessoa->setCpf($_REQUEST['cpf']);
+        $pessoa->setNome($_REQUEST['nome']);
+
+        $pessoaDao->create($pessoa);
+
+        die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
+    }
+} else {
+    die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
 }
 ?>
 
