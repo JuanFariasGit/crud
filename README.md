@@ -1,6 +1,6 @@
 #POO (PHP) - LOGIN + CRUD + DAO
 
-Aplicação para fins didáticos em programação orientada a objeto utilizando o composer e boas práticas.<br>
+Aplicação para fins didáticos em programação orientada a objeto utilizando o composer.<br>
 
 Para instalar esta aplicação.<br>
 
