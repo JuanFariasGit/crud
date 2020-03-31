@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Model;
 
 class LogarDaoMysql implements LogarDao
 {
-    public function login(Logar $l) 
+    public function login(Logar $l) : bool
     {
         $array = [];
   
@@ -23,7 +25,7 @@ class LogarDaoMysql implements LogarDao
         }
     }
     
-    public function logout()
+    public function logout() : void
     {
         if($_GET['url'] == 'login/logout') {
             unset($_SESSION['login-session']);
@@ -31,7 +33,7 @@ class LogarDaoMysql implements LogarDao
         }    
     }
     
-    public function checkLogin()
+    public function checkLogin() : bool
     {
        if(!empty($_SESSION['login-session'])) {
            return true;

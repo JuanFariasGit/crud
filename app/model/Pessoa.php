@@ -1,38 +1,49 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Model;
 
 class Pessoa 
 {
+    /** 
+     * @var int 
+     */ 
     private $id;
+    /** 
+     * @var string  
+    */
     private $cpf;
+    /** 
+     * @var string  
+    */
     private $nome;
             
-    public function getId() 
+    public function getId() : int 
     {
         return $this->id;
     }
 
-    public function getCpf() 
+    public function getCpf() : string
     {
         return $this->cpf;
     }
 
-    public function getNome() 
+    public function getNome() : string
     {
         return $this->nome;
     }
 
-    public function setId($id) 
+    public function setId(int $id) : void
     {
         $this->id = $id;
     }
 
-    public function setCpf($cpf) 
+    public function setCpf(string $cpf) : void
     {
         $this->cpf = $cpf;
     }
 
-    public function setNome($nome) 
+    public function setNome(string $nome) : void
     {
         $this->nome = $nome;
     }
@@ -41,10 +52,10 @@ class Pessoa
 
 interface PessoaDao 
 {
-    public function create(Pessoa $p);
-    public function findAll();
-    public function findById($id);
-    public function update(Pessoa $p);
-    public function delete($id);
+    public function create(Pessoa $p) : void;
+    public function findAll() : array;
+    public function findById($id) : array;
+    public function update(Pessoa $p) : void;
+    public function delete($id) : void;
 }
 

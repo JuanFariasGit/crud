@@ -1,27 +1,35 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Model;
 
 class Logar
 {
+    /**
+     * @var string
+     */
     private $email;
+    /**
+     * @var string
+     */
     private $senha;
     
-    public function getEmail() 
+    public function getEmail() : string
     {
         return $this->email;
     }
 
-    public function getSenha() 
+    public function getSenha() : string
     {
         return $this->senha;
     }
 
-    public function setEmail($email) 
+    public function setEmail(string $email) : void
     {
         $this->email = $email;
     }
 
-    public function setSenha($senha) 
+    public function setSenha(string $senha) : void
     {
         $this->senha = md5($senha);
     }
@@ -30,7 +38,7 @@ class Logar
 
 interface LogarDao
 {
-    public function login(Logar $l);
-    public function logout();
-    public function checkLogin();
+    public function login(Logar $l) : bool;
+    public function logout() : void;
+    public function checkLogin() : bool;
 }
