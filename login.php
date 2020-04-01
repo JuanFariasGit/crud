@@ -1,26 +1,13 @@
-<?php
-session_start();
-require_once "vendor/autoload.php";
-
-$logar = new App\Model\Logar();
-$logarDao = new App\Model\LogarDaoMysql();
-
-if($_SERVER['REQUEST_METHOD'] == "POST") {
-    $logar->setEmail($_REQUEST['email']);
-    $logar->setSenha($_REQUEST['senha']);
-
-    if($logarDao->login($logar)) {
-        die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
-    } else {
-        die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
-    }
-}
-
-$logarDao->logout();
-?>
-
-<?php include_once "inc/header.php"; ?>
-    <form method="POST">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/assets/css/style.css">
+    <title>PHP Da Maneira Certa - CRUD</title>
+</head>
+<body>
+    <form action="./action_login" method="post">
         <div class="container">
             <label for="email">E-MAIL:</label>
             <input type="text" name="email" id="email">
@@ -29,4 +16,5 @@ $logarDao->logout();
             <input type="submit" value="ENTRAR">
         </div>
     </form>
-<?php include_once "inc/footer.php"; ?>
+    </body>
+</html>

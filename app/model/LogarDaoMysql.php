@@ -27,7 +27,7 @@ class LogarDaoMysql implements LogarDao
     
     public function logout() : void
     {
-        if($_GET['url'] == 'login/logout') {
+        if($_GET['url'] == 'action_login/logout') {
             unset($_SESSION['login-session']);
             die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
         }    

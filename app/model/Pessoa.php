@@ -6,7 +6,7 @@ namespace App\Model;
 class Pessoa 
 {
     /** 
-     * @var int 
+     * @var string
      */ 
     private $id;
     /** 
@@ -18,7 +18,7 @@ class Pessoa
     */
     private $nome;
             
-    public function getId() : int 
+    public function getId() : string
     {
         return $this->id;
     }
@@ -33,7 +33,7 @@ class Pessoa
         return $this->nome;
     }
 
-    public function setId(int $id) : void
+    public function setId(string $id) : void
     {
         $this->id = $id;
     }
