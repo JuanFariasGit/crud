@@ -1,11 +1,5 @@
 <?php
-declare(strict_types=1);
-
-session_start();
-require_once "vendor/autoload.php";
-
-$logar    = new App\Model\Logar();
-$logarDao = new App\Model\LogarDaoMysql();   
+include_once "inc/check_login.php";
 
 if($logarDao->checkLogin()) {
     $pessoa    = new App\Model\Pessoa();
