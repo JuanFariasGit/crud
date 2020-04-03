@@ -1,6 +1,8 @@
 <?php
-include_once "inc/header.php";
+include_once "inc/check_login.php";
+
 if($logarDao->checkLogin()):
+    include_once "inc/header.php";
     $pessoa    = new App\Model\Pessoa();
     $pessoaDao = new App\Model\PessoaDaoMysql(); 
 ?>
