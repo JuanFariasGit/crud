@@ -6,7 +6,7 @@ if($logarDao->checkLogin()):
     $pessoa    = new App\Model\Pessoa();
     $pessoaDao = new App\Model\PessoaDaoMysql(); 
 ?>
-<form action="./action_pessoa?option=1" method="post">
+<form action="./action_pessoa?option=create" method="post">
     <div class="container">
         <h1>CADASTRO DE PESSOA</h1>
         <label for="cpf">CPF:</label>
@@ -32,7 +32,7 @@ if($logarDao->checkLogin()):
                 <td><?= $p['nome']; ?></td>
                 <td>
                     <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/edit?id=<?= $p['id']; ?>">Editar</a>
-                    <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/action_pessoa?option=id=<?= $p['id']; ?>">Deletar</a>
+                    <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/action_pessoa?option=delete&id=<?= $p['id']; ?>">Deletar</a>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -6,7 +6,7 @@ if($logarDao->checkLogin()):
     $pessoa    = new App\Model\Pessoa();
     $pessoaDao = new App\Model\PessoaDaoMysql(); 
 ?>
-<form action="./action_pessoa?option=2" method="post">
+<form action="./action_pessoa?option=update" method="post">
     <div class="container">
         <h1>CADASTRO DE PESSOA</h1>
         <?php foreach($pessoaDao->findById($_REQUEST['id']) as $p): ?>

@@ -6,7 +6,7 @@ if($logarDao->checkLogin()) {
     $pessoaDao = new App\Model\PessoaDaoMysql();
     
     switch($_GET['option']) {
-        case 1:
+        case "create":
             if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $pessoa->setCpf($_REQUEST['cpf']);
                 $pessoa->setNome($_REQUEST['nome']);
@@ -15,7 +15,7 @@ if($logarDao->checkLogin()) {
             } 
         break;    
 
-        case 2:
+        case "update":
             if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $pessoa->setId($_REQUEST['id']);
                 $pessoa->setCpf($_REQUEST['cpf']);
@@ -25,10 +25,9 @@ if($logarDao->checkLogin()) {
             } 
         break;
 
-        default:
+       case "delete":
             if($_SERVER['REQUEST_METHOD'] == "GET") {
-                $id = explode("=", $_REQUEST['option'])[1];
-                $pessoaDao->delete($id);        
+                $pessoaDao->delete($_REQUEST['id']);        
                 die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
             }
         break;
