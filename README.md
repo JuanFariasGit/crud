@@ -1,4 +1,4 @@
-#POO (PHP) - LOGIN + CRUD + DAO
+#POO (PHP) - LOGIN + CRUD + DAO + AJAX
 
 Aplicação para fins didáticos em programação orientada a objeto utilizando o composer.<br>
 

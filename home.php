@@ -32,13 +32,32 @@ if($logarDao->checkLogin()):
                 <td><?= $p['nome']; ?></td>
                 <td>
                     <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/edit&id=<?= $p['id']; ?>">Editar</a>
-                    <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/action_pessoa?option=delete&id=<?= $p['id']; ?>">Deletar</a>
+                    <a id="<?= $p['id']; ?>" name="<?= $p['nome'] ;?>" onclick="deletar(this)" style="color: blue; text-decoration: underline; cursor: pointer">Deletar</a>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+<script>
+    function deletar(obj)
+    {
+        const id = obj.id;
+        const nome = obj.name;
+        const option = "delete";
+
+        if(confirm("Você realmente deseja deletar o usuário " + nome + " ?") === true) {
+            $.ajax ({
+                type:"POST",
+                url:"http://localhost/crud/action_pessoa",
+                data:{option:option, id:id},
+                success: function() {
+                    location.reload();
+                }
+            })
+        }
+    }
+</script>
 <?php
 else:
     die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));

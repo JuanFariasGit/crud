@@ -7,8 +7,8 @@ class PessoaDaoMysql implements PessoaDao
 {
     public function create(Pessoa $p) : void
     {
-        $query  = "INSERT INTO pessoa (cpf,nome) VALUES (?,?)";
-        $stmt = Conexao::Con()->prepare($query);
+        $sql  = "INSERT INTO pessoa (cpf,nome) VALUES (?,?)";
+        $stmt = Conexao::Con()->prepare($sql);
         $stmt->bindValue(1, $p->getCpf());
         $stmt->bindValue(2, $p->getNome());
         $stmt->execute();
@@ -18,8 +18,8 @@ class PessoaDaoMysql implements PessoaDao
     {
         $array = [];
 
-        $query = "SELECT * FROM pessoa";
-        $stmt = Conexao::Con()->prepare($query);
+        $sql = "SELECT * FROM pessoa";
+        $stmt = Conexao::Con()->prepare($sql);
         $stmt->execute();
 
         if($stmt->rowCount() > 0) {
@@ -32,8 +32,8 @@ class PessoaDaoMysql implements PessoaDao
     {
         $array = [];
         
-        $query = "SELECT * FROM pessoa WHERE id = ?";
-        $stmt = Conexao::Con()->prepare($query);
+        $sql = "SELECT * FROM pessoa WHERE id = ?";
+        $stmt = Conexao::Con()->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
@@ -55,8 +55,8 @@ class PessoaDaoMysql implements PessoaDao
 
     public function delete($id) : void
     {
-        $query  = "DELETE FROM pessoa WHERE id = ?";
-        $stmt = Conexao::Con()->prepare($query);
+        $sql  = "DELETE FROM pessoa WHERE id = ?";
+        $stmt = Conexao::Con()->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }

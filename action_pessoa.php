@@ -6,12 +6,12 @@ require_once "vendor/autoload.php";
 $pessoa    = new App\Model\Pessoa();
 $pessoaDao = new App\Model\PessoaDaoMysql();
 
-switch($_GET['option']) {
+switch($_REQUEST['option']) {
     case "create":
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $pessoa->setCpf($_REQUEST['cpf']);
             $pessoa->setNome($_REQUEST['nome']);
-
+            
             $pessoaDao->create($pessoa);
             die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
         } 
@@ -29,9 +29,8 @@ switch($_GET['option']) {
     break;
 
     case "delete":
-        if($_SERVER['REQUEST_METHOD'] == "GET") {
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
             $pessoaDao->delete($_REQUEST['id']);        
-            die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
         }
     break;
 }
