@@ -31,7 +31,7 @@ if($logarDao->checkLogin()):
                 <td><?= $p['cpf']; ?></td>
                 <td><?= $p['nome']; ?></td>
                 <td>
-                    <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/edit&id=<?= $p['id']; ?>">Editar</a>
+                    <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/edit?id=<?= $p['id']; ?>">Editar</a>
                     <a id="<?= $p['id']; ?>" name="<?= $p['nome'] ;?>" onclick="deletar(this)" style="color: blue; text-decoration: underline; cursor: pointer">Deletar</a>
                 </td>
             </tr>
