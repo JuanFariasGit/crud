@@ -32,10 +32,6 @@ if($logarDao->checkLogin()) {
                 $pessoaDao->delete($_REQUEST['id']);        
             }
         break;
-        
-        default:
-            die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
-        break;
     }
 } else {
     die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
