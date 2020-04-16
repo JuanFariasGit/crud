@@ -6,6 +6,10 @@ if($logarDao->checkLogin()):
     $pessoa    = new App\Model\Pessoa();
     $pessoaDao = new App\Model\PessoaDaoMysql(); 
 ?>
+<div style="display: flex; justify-content: space-around; align-items: center">
+    <h2>GRUD</h2>
+    <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/action_login/logout">Sair</a>
+</div>    
 <form action="./action_pessoa?option=create" method="post">
     <div class="container">
         <h1>CADASTRO DE PESSOA</h1>
