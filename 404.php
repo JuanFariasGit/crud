@@ -1,1 +1,1 @@
-<h1>Pagina Não encontrada</h1>
+<?php echo "<h1>Pagina Não encontrada</h1>";
