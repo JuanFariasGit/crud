@@ -21,7 +21,7 @@ if($logarDao->checkLogin()):
 </form>
 <?php
 else:
-    die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
+    die(header("Location: http://".$_SERVER['HTTP_HOST'].'/'.explode('/', $_SERVER['REQUEST_URI'])[1]."/login"));
 endif;     
 include_once "inc/footer.php"; 
 ?>    

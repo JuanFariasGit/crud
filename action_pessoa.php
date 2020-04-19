@@ -12,7 +12,7 @@ if($logarDao->checkLogin()) {
                 $pessoa->setNome($_REQUEST['nome']);
                 
                 $pessoaDao->create($pessoa);
-                die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
+                die(header("Location: http://".$_SERVER['HTTP_HOST']."/".explode('/', $_SERVER['REQUEST_URI'])[1]));
             } 
         break;    
 
@@ -23,7 +23,7 @@ if($logarDao->checkLogin()) {
                 $pessoa->setNome($_REQUEST['nome']);
                 
                 $pessoaDao->update($pessoa);
-                die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
+                die(header("Location: http://".$_SERVER['HTTP_HOST']."/".explode('/', $_SERVER['REQUEST_URI'])[1]));
             } 
         break;
 
@@ -34,5 +34,5 @@ if($logarDao->checkLogin()) {
         break;
     }
 } else {
-    die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
+    die(header("Location: http://".$_SERVER['HTTP_HOST']."/".explode('/', $_SERVER['REQUEST_URI'])[1]."/login"));
 }

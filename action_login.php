@@ -12,9 +12,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $logar->setSenha($_REQUEST['senha']);
 
     if($logarDao->login($logar)) {
-        die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud"));
+        die(header("Location: http://".$_SERVER['HTTP_HOST'].'/'.explode('/', $_SERVER['REQUEST_URI'])[1]));
     } else {
-        die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
+        die(header("Location: http://".$_SERVER['HTTP_HOST'].'/'.explode('/', $_SERVER['REQUEST_URI'])[1]."/login"));
     }
 }
 
