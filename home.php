@@ -8,7 +8,7 @@ if($logarDao->checkLogin()):
 ?>
 <div style="display: flex; justify-content: space-around; align-items: center">
     <h2>GRUD</h2>
-    <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/crud/action_login/logout">Sair</a>
+    <a href="http://<?= $_SERVER['HTTP_HOST'].'/'.explode('/', $_SERVER['REQUEST_URI'])[1]; ?>/action_login/logout">Sair</a>
 </div>    
 <form action="./action_pessoa?option=create" method="post">
     <div class="container">
@@ -64,7 +64,7 @@ if($logarDao->checkLogin()):
 </script>
 <?php
 else:
-    die(header("Location: http://".$_SERVER['HTTP_HOST']."/crud/login"));
+    die(header("Location: http://".$_SERVER['HTTP_HOST'].explode('/', $_SERVER['REQUEST_URI'])[1]."/login"));
 endif;     
 include_once "inc/footer.php"; 
 ?>     
