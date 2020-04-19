@@ -64,7 +64,7 @@ if($logarDao->checkLogin()):
 </script>
 <?php
 else:
-    die(header("Location: http://".$_SERVER['HTTP_HOST'].explode('/', $_SERVER['REQUEST_URI'])[1]."/login"));
+    die(header("Location: http://".$_SERVER['HTTP_HOST']."/".explode('/', $_SERVER['REQUEST_URI'])[1]."/login"));
 endif;     
 include_once "inc/footer.php"; 
 ?>     
