@@ -53,9 +53,10 @@ class Pessoa
 interface PessoaDao 
 {
     public function create(Pessoa $p) : void;
-    public function findAll() : array;
-    public function findById($id) : array;
+    public function findAll(int $inicio, int $limite) : array;
+    public function numTotalPessoas();
+    public function findById(string $id) : array;
     public function update(Pessoa $p) : void;
-    public function delete($id) : void;
+    public function delete(string $id) : void;
 }
 

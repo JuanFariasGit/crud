@@ -14,11 +14,11 @@ class PessoaDaoMysql implements PessoaDao
         $stmt->execute();
     }
 
-    public function findAll() : array
+    public function findAll(int $inicio, int $limite) : array
     {
         $array = [];
 
-        $sql = "SELECT * FROM pessoa";
+        $sql = "SELECT * FROM pessoa ORDER BY id LIMIT $inicio, $limite";
         $stmt = Conexao::Con()->prepare($sql);
         $stmt->execute();
 
@@ -28,7 +28,17 @@ class PessoaDaoMysql implements PessoaDao
         return $array;
     }
 
-    public function findById($id) : array
+    public function numTotalPessoas() : int
+    {
+        $sql = "SELECT COUNT(*) AS c FROM pessoa";
+        $stmt = Conexao::Con()->prepare($sql);
+        $stmt->execute();
+        
+        $num = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return intval($num['c']);
+    }
+
+    public function findById(string $id) : array
     {
         $array = [];
         
@@ -45,21 +55,20 @@ class PessoaDaoMysql implements PessoaDao
 
     public function update(Pessoa $p) : void
     {
-        $query  = "UPDATE pessoa SET cpf = ?, nome = ? WHERE id = ?";
-        $stmt = Conexao::Con()->prepare($query);
+        $sql  = "UPDATE pessoa SET cpf = ?, nome = ? WHERE id = ?";
+        $stmt = Conexao::Con()->prepare($sql);
         $stmt->bindValue(1, $p->getCpf());
         $stmt->bindValue(2, $p->getNome());
         $stmt->bindValue(3, $p->getId());
         $stmt->execute();
     }
 
-    public function delete($id) : void
+    public function delete(string $id) : void
     {
         $sql  = "DELETE FROM pessoa WHERE id = ?";
         $stmt = Conexao::Con()->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
-    }
-    
+    }    
 }
 

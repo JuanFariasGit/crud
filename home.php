@@ -20,48 +20,7 @@ if($logarDao->checkLogin()):
         <input type="submit" value="CADASTRAR">
     </div>    
 </form>
-<div class="container-table">
-    <table width="100%">
-        <thead>
-            <tr>
-                <th scope="col">CPF</th>
-                <th scope="col">NOME</th>
-                <th scope="col">AÇÕES</th>
-            </tr>    
-        </thead>
-        <tbody>
-            <?php foreach($pessoaDao->findAll() as $p): ?>
-            <tr>
-                <td><?= $p['cpf']; ?></td>
-                <td><?= $p['nome']; ?></td>
-                <td>
-                    <a href="http://<?= $_SERVER['HTTP_HOST'].'/'.explode('/', $_SERVER['REQUEST_URI'])[1]; ?>/edit?id=<?= $p['id']; ?>">Editar</a>
-                    <a id="<?= $p['id']; ?>" name="<?= $p['nome'] ;?>" onclick="deletar(this)" style="color: blue; text-decoration: underline; cursor: pointer">Deletar</a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
-<script>
-    function deletar(obj)
-    {
-        const id = obj.id;
-        const nome = obj.name;
-        const option = "delete";
-
-        if(confirm("Você realmente deseja deletar o usuário " + nome + " ?") === true) {
-            $.ajax ({
-                type:"POST",
-                url:"http://localhost/crud/action_pessoa",
-                data:{option:option, id:id},
-                success: function() {
-                    location.reload();
-                }
-            })
-        }
-    }
-</script>
+<div id="lista_pessoas" class="container-table"></div>
 <?php
 else:
     die(header("Location: http://".$_SERVER['HTTP_HOST']."/".explode('/', $_SERVER['REQUEST_URI'])[1]."/login"));
