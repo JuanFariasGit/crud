@@ -32,8 +32,10 @@ if($logarDao->checkLogin()) {
                     </tr>";
                 }              
                 $html .= "</tbody></table>";
+                
+                $html .= "<div style='display: flex; justify-content: center; margin: 3px 0px'><span style='margin: 0px 10px'>Página ".$_REQUEST['pagina']." de ".$qnt_pg."</span>";
 
-                $html .= "<div style='display: flex; justify-content: center; margin: 3px 0px'><a onclick='listar_pessoas(1,".$limite.")' style='color: blue; cursor: pointer'>Primeira</a>";
+                $html .= "<a onclick='listar_pessoas(1,".$limite.")' style='color: blue; cursor: pointer'>Primeira</a>";
                 for($pag_ant = $_REQUEST['pagina'] - $max_links; $pag_ant <= $_REQUEST['pagina'] - 1; $pag_ant++) {
                     if($pag_ant >= 1) {
                         $html .= "<a onclick='listar_pessoas(".$pag_ant.",".$limite.")' style='color: blue; cursor: pointer;margin: 0px 5px'>".$pag_ant."</a>";
