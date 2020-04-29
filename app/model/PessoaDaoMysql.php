@@ -18,7 +18,7 @@ class PessoaDaoMysql implements PessoaDao
     {
         $array = [];
 
-        $sql = "SELECT * FROM pessoa ORDER BY id LIMIT $inicio, $limite";
+        $sql = "SELECT * FROM pessoa ORDER BY id DESC LIMIT $inicio, $limite";
         $stmt = Conexao::Con()->prepare($sql);
         $stmt->execute();
 
