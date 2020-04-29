@@ -33,8 +33,8 @@ if($logarDao->checkLogin()) {
                 }              
                 $html .= "</tbody></table>";
 
-                $html .= "<div style='display: flex; justify-content: center; margin: 3px 0px'><a onclick='listar_pessoas(1,".$limite.")' style='color: blue; cursor: pointer'>primeira</a>";
-                $html .= "<a onclick='listar_pessoas(".$qnt_pg.",".$limite.")' style='color: blue; cursor: pointer;margin: 0px 5px'>última</a></div>";
+                $html .= "<div style='display: flex; justify-content: center; margin: 3px 0px'><a onclick='listar_pessoas(1,".$limite.")' style='color: blue; cursor: pointer'>Primeira</a>";
+                $html .= "<a onclick='listar_pessoas(".$qnt_pg.",".$limite.")' style='color: blue; cursor: pointer;margin: 0px 5px'>Última</a></div>";
                 echo $html;
             }
         break;
